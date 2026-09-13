@@ -1,0 +1,14 @@
+{
+  "name": "fly-poop-buffet",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/model.test.mjs",
+    "check:browser": "node scripts/check-browser.mjs",
+    "render:preview": "node scripts/render-preview.mjs"
+  },
+  "dependencies": { "three": "0.180.0" },
+  "devDependencies": { "playwright": "1.63.0" }
+}
