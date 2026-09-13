@@ -1,9 +1,10 @@
 // Can experience overturn an innate preference?
 //
-// As configured, zebra is BOTH the innately preferred dish AND the rewarded one,
-// so a shift toward zebra proves nothing -- she was already going there. The
-// test that means something is to reward the dish she likes LEAST and ask
-// whether the memory beats the instinct.
+// config.mjs rewards the dish it names as the story's protagonist, which may
+// also be the innately preferred one -- a shift toward an already-preferred
+// dish proves nothing, she was already going there. The test that means
+// something is to reward the dish she likes LEAST and ask whether the memory
+// beats the instinct.
 import { BuffetSimulation, OdorBrain, recipeVector } from '../model.mjs';
 import { DISHES } from '../config.mjs';
 

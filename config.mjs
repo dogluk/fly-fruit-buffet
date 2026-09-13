@@ -1,37 +1,53 @@
-// v0.3. Receptor responses and PN->KC wiring are MEASURED. Dish recipes,
+// v0.4. Receptor responses and PN->KC wiring are MEASURED. Dish recipes,
 // movement and the APL stand-in are not. Keep that boundary here.
 //
 // The world is a set of real odorants. A dish is a mixture of them. Receptor
 // activation is looked up from DoOR (measured), never predicted from structure.
+//
+// She is a fruit fly. v0.3 fed her dung -- carrion and dung volatiles happen to
+// be exactly where 1980s-2000s single-sensillum electrophysiology looked, so
+// they were densely measured, but they are not her ecology. Fermenting fruit is.
+// Becher et al. 2012 (Funct. Ecol.) showed it is specifically YEAST volatiles on
+// the fruit, not the fruit's own smell, that drive attraction, oviposition and
+// larval development -- these dishes are read as fermenting fruit, sugar plus
+// yeast, not raw produce.
 
 // Odorants present in this world. Every name must exist in door_responses.mjs.
-// Chosen from compounds actually reported in faecal/dung volatilomes that DoOR
-// measures across enough glomeruli to be usable.
+// Chosen from esters, ethanol and acetic acid -- the yeast-fermentation
+// signature -- plus the terpenes of intact citrus peel as a contrast class.
+// DoOR's coverage of these is dense: it was built largely from Hallem & Carlson
+// 2006, whose whole point was profiling D. melanogaster's own receptor
+// repertoire against its own ecologically relevant odors.
 export const ODORANTS = [
-  'indole', '4-methylphenol', '2-methylphenol', 'butyric acid', '2-butanone',
-  'acetic acid', 'dimethyl sulfide', 'limonene', 'p-cymene', '1-pentanol',
-  '2-heptanone', 'benzaldehyde',
+  'ethyl acetate', 'isopentyl acetate', 'ethyl butyrate', 'ethanol',
+  'acetic acid', '2,3-butanedione', 'hexyl acetate', '1-hexanol',
+  'benzaldehyde', 'limonene', 'linalool', 'geraniol',
 ];
 
 // Dish recipes remain ILLUSTRATIVE: proportions are not measured headspace.
-// The chemistry follows the standard carnivore/herbivore contrast -- carnivore
-// faeces runs high in indole, cresols and sulfur; herbivore dung carries more
-// short-chain acids and plant-derived terpenes. What each dish SMELLS LIKE to
-// the model, and whether the fly approaches it, now comes out of DoOR and the
-// connectome rather than a hand-set number per dish.
+// Banana and cherry share the yeast-fermentation esters (ethanol, acetic acid,
+// fruity acetate/butyrate esters) that Semmelhack & Wang 2009 (Nature) showed
+// drive innate vinegar attraction through two glomeruli, DM1 (Or42b) and VA2
+// (Or92a) -- both of which ethyl acetate, ethyl butyrate and 2,3-butanedione
+// activate strongly in DoOR (checked directly against door_responses.mjs).
+// Citrus instead carries whole-peel terpenes (limonene, linalool, geraniol)
+// with almost no ester signature -- the intact-fruit contrast to the other two
+// dishes' fermenting-fruit chemistry. Note the honest caveat: D-limonene is a
+// documented oviposition deterrent for D. suzukii, a close relative, but the
+// melanogaster-specific evidence is thinner -- treat "citrus repels" as a
+// hypothesis this model can test, not an imported fact.
 export const DISHES = [
-  { id: 'giraffe', name: 'Giraffe', color: '#e5b56a', x: -4.6, z: -1.25,
+  { id: 'cherry', name: 'Cherry', color: '#9c2b44', x: -4.6, z: -1.25,
     reward: .12, recipe: {
-      'butyric acid': .45, 'limonene': .40, 'p-cymene': .35, 'acetic acid': .30,
-      '4-methylphenol': .12, '2-heptanone': .10, 'indole': .05 } },
-  { id: 'zebra', name: 'Zebra', color: '#71c8bf', x: 0, z: -2.6,
+      'ethyl butyrate': .45, '2,3-butanedione': .30, 'ethanol': .35,
+      'acetic acid': .20, 'benzaldehyde': .25 } },
+  { id: 'banana', name: 'Banana', color: '#eec53f', x: 0, z: -2.6,
     reward: 1, recipe: {
-      'butyric acid': .30, 'limonene': .22, '1-pentanol': .35, '2-butanone': .30,
-      'benzaldehyde': .25, '4-methylphenol': .18, 'indole': .10 } },
-  { id: 'lion', name: 'Lion', color: '#aaa0d7', x: 4.6, z: -1.25,
+      'isopentyl acetate': .70, 'ethyl acetate': .50, 'ethanol': .40,
+      'acetic acid': .20, 'hexyl acetate': .15 } },
+  { id: 'citrus', name: 'Citrus', color: '#e8892e', x: 4.6, z: -1.25,
     reward: 0, recipe: {
-      'indole': .70, '4-methylphenol': .60, '2-methylphenol': .40,
-      'dimethyl sulfide': .55, '2-butanone': .20, 'butyric acid': .25 } },
+      'limonene': .65, 'linalool': .35, 'geraniol': .30, '1-hexanol': .10 } },
 ];
 
 // There is no innate-valence table any more. What a smell is worth is read out

@@ -98,18 +98,21 @@ export class BuffetView {
       new THREE.MeshStandardMaterial({ color: dish.color, emissive: dish.color, emissiveIntensity: .22, roughness: .5 }));
     ring.rotation.x = Math.PI / 2; ring.position.y = .09; group.add(ring);
     const rng = randomGenerator(400 + index);
-    const poop = new THREE.MeshStandardMaterial({ color: ['#725b33', '#66513a', '#65452f'][index], roughness: 1 });
+    // Flesh tone per dish: overripe banana pulp, cherry flesh, citrus segment.
+    const flesh = new THREE.MeshStandardMaterial({ color: ['#6e1524', '#e8d27a', '#f3a24e'][index], roughness: .85 });
     if (index === 2) {
-      for (let i = 0; i < 3; i++) this.sphere(group, [(i - 1) * .29, .22 + i * .015, .06 * (i % 2)], [.24, .16, .48], poop);
+      // Citrus: three curved wedges standing in for peeled segments.
+      for (let i = 0; i < 3; i++) this.sphere(group, [(i - 1) * .29, .22 + i * .015, .06 * (i % 2)], [.24, .16, .48], flesh);
     } else {
+      // Banana / cherry: a scatter of diced fruit chunks.
       for (let i = 0; i < 12; i++) {
         const a = rng() * Math.PI * 2, r = Math.sqrt(rng()) * .53;
-        this.sphere(group, [Math.cos(a) * r, .17 + rng() * .15, Math.sin(a) * r], [.2, .16, .17], poop, 12);
+        this.sphere(group, [Math.cos(a) * r, .17 + rng() * .15, Math.sin(a) * r], [.2, .16, .17], flesh, 12);
       }
     }
     for (let i = 0; i < 38; i++) {
       const a = rng() * Math.PI * 2, r = Math.sqrt(rng()) * .6;
-      this.sphere(group, [Math.cos(a) * r, .18 + .24 * (1 - r), Math.sin(a) * r], [.025, .028, .023], poop, 6);
+      this.sphere(group, [Math.cos(a) * r, .18 + .24 * (1 - r), Math.sin(a) * r], [.025, .028, .023], flesh, 6);
     }
     this.scene.add(group); return group;
   }

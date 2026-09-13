@@ -27,7 +27,7 @@ test('innate valence is derived from measured responses, not asserted', () => {
   assert.ok(new Set(a).size === a.length, 'dishes must be distinguishable');
   // A single odorant driving an attractive glomerulus must read positive.
   const one = new Float64Array(ODORANTS.length);
-  one[ODORANTS.indexOf('butyric acid')] = 1;
+  one[ODORANTS.indexOf('ethyl acetate')] = 1;
   assert.ok(brain.encode(one).innate > 0);
 });
 
@@ -121,5 +121,5 @@ test('a reward reversal changes learned value without resetting the brain', () =
   // not by a gain someone picked.
   assert.ok(s.standardizedValues()[2].learned > learnedBefore[2],
     'the newly rewarded dish must gain learned value');
-  assert.ok(s.events.some(e => e.type === 'contact' && e.round === 2 && e.dish === 'lion' && e.reward === 1));
+  assert.ok(s.events.some(e => e.type === 'contact' && e.round === 2 && e.dish === 'citrus' && e.reward === 1));
 });

@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090f14">
-  <title>The poop buffet · Fly olfaction toy</title>
+  <title>The fruit buffet · Fly olfaction toy</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
     <header class="masthead">
-      <div><p class="eyebrow">SMALL BRAIN. PARTICULAR TASTE.</p><h1>The poop buffet<span> / 001</span></h1></div>
+      <div><p class="eyebrow">SMALL BRAIN. PARTICULAR TASTE.</p><h1>The fruit buffet<span> / 001</span></h1></div>
       <div class="version"><span class="status-dot"></span> A FLY OLFACTION TOY <small>v0.4 · no hand-set preferences</small></div>
     </header>
     <section class="theater" aria-label="Animated fly buffet and schematic neural activity">
-      <canvas id="stage" width="1440" height="810" aria-label="A fly explores three fecal-inspired odor dishes. A schematic shows sensory and learning activity."></canvas>
+      <canvas id="stage" width="1440" height="810" aria-label="A fly explores three fermenting-fruit odor dishes. A schematic shows sensory and learning activity."></canvas>
       <p id="render-error" hidden></p>
     </section>
     <section class="transport" aria-label="Simulation controls">
@@ -29,10 +29,10 @@
         <p>Food rewards arrive on contact during training. The final sniff test removes all rewards. Can she learn a new favorite?</p>
         <label class="toggle"><input type="checkbox" id="learning" checked><span>Learning enabled</span><small>off = fixed-memory control</small></label>
         <button id="train-again" disabled>Train again with these rewards</button>
-        <p class="hint" id="run-status" role="status">First, let her explore. Default training rewards favor zebra.</p>
+        <p class="hint" id="run-status" role="status">First, let her explore. Default training rewards favor banana.</p>
       </div>
       <div class="reward-panel">
-        <div class="panel-heading"><p class="eyebrow">EXPERIMENTAL FOOD REWARD</p><span>not poop nutrition</span></div>
+        <div class="panel-heading"><p class="eyebrow">EXPERIMENTAL FOOD REWARD</p><span>not real fruit nutrition</span></div>
         <div id="reward-controls"></div>
         <div class="reward-scale"><span>No reward</span><span>Full reward</span></div>
       </div>
@@ -40,9 +40,9 @@
     <details class="methods">
       <summary>What's real, what's toy, and what the plot means <span>READ THE MODEL NOTES</span></summary>
       <div class="method-grid">
-        <div><h3>The scientific starting point</h3><p>Fruit flies can distinguish fecal cues. Phenol-sensitive Or46a neurons are involved in egg-laying avoidance. Odor–food learning involves the mushroom body and dopamine reinforcement.</p><p><a href="https://doi.org/10.1016/j.cub.2016.07.065" target="_blank" rel="noreferrer">Mansourian et al., 2016 ↗</a><br><a href="https://doi.org/10.1016/j.cub.2015.01.036" target="_blank" rel="noreferrer">Huetteroth et al., 2015 ↗</a></p></div>
-        <div><h3>What is real, and what is not</h3><p><strong>Real:</strong> the projection-neuron&nbsp;&rarr;&nbsp;Kenyon-cell wiring. 2,597 Kenyon cells and 139 uniglomerular PNs from FlyWire release 783 (CC&nbsp;BY&nbsp;4.0), 10,821 connections, a median of about 5 PNs per cell. Which cells connect is measured, not generated.</p><p><strong>Also real:</strong> odorant&nbsp;&rarr;&nbsp;glomerulus responses, from DoOR&nbsp;2.0 &mdash; single-sensillum recordings and calcium imaging, 41 glomeruli &times; 204 odorants. No structure prediction, no docking. 99 of 139 PNs are driven by measured data; the other 40 innervate glomeruli DoOR does not measure well enough, and stay silent rather than being fed an invented number.</p><p><strong>Also real:</strong> the value readout. 13,112 measured KC&nbsp;&rarr;&nbsp;MBON connections onto 48 output neurons, each one&rsquo;s pull toward approach derived from which dopaminergic cluster writes to its compartment &mdash; PAM carries reward, PPL1 carries punishment. There is no innate-valence table in this model. Nobody tells her what a smell is worth.</p><p><strong>Still synthetic:</strong> dish recipe proportions and movement rules. Winner-take-all is a uniform top-k stand-in, not the real APL neuron. The circuit panel is schematic, not anatomical, and shows a 180-cell sample of 2,597.</p><p>Giraffe / zebra / lion are fecal-inspired labels. Their recipes and food rewards are not measurements of those animals' poop.</p></div>
-        <div><h3>Read the experiment</h3><p>The lines show the model's response to each isolated odor at a fixed dose, in arbitrary value units. They are not choice probabilities. Visit counters record actual contacts; the phases have unequal durations.</p><p>A changed value is learning inside this model. A real fly's feeding preference is not established by egg-laying data. “Simulation seconds” are uncalibrated.</p><p><a href="README.md">Implementation & verification notes ↗</a></p></div>
+        <div><h3>The scientific starting point</h3><p>Innate attraction to fermenting fruit runs through two glomeruli, DM1 and VA2 &mdash; silencing either one cuts a fly's approach to vinegar. It's yeast on the fruit, not the fruit itself, that draws her in. Odor&ndash;food learning involves the mushroom body and dopamine reinforcement.</p><p><a href="https://doi.org/10.1038/nature07983" target="_blank" rel="noreferrer">Semmelhack & Wang, 2009 ↗</a><br><a href="https://doi.org/10.1111/j.1365-2435.2012.02006.x" target="_blank" rel="noreferrer">Becher et al., 2012 ↗</a></p></div>
+        <div><h3>What is real, and what is not</h3><p><strong>Real:</strong> the projection-neuron&nbsp;&rarr;&nbsp;Kenyon-cell wiring. 2,597 Kenyon cells and 139 uniglomerular PNs from FlyWire release 783 (CC&nbsp;BY&nbsp;4.0), 10,821 connections, a median of about 5 PNs per cell. Which cells connect is measured, not generated.</p><p><strong>Also real:</strong> odorant&nbsp;&rarr;&nbsp;glomerulus responses, from DoOR&nbsp;2.0 &mdash; single-sensillum recordings and calcium imaging, 41 glomeruli &times; 204 odorants. No structure prediction, no docking. 99 of 139 PNs are driven by measured data; the other 40 innervate glomeruli DoOR does not measure well enough, and stay silent rather than being fed an invented number.</p><p><strong>Also real:</strong> the value readout. 13,112 measured KC&nbsp;&rarr;&nbsp;MBON connections onto 48 output neurons, each one&rsquo;s pull toward approach derived from which dopaminergic cluster writes to its compartment &mdash; PAM carries reward, PPL1 carries punishment. There is no innate-valence table in this model. Nobody tells her what a smell is worth.</p><p><strong>Still synthetic:</strong> dish recipe proportions and movement rules. Winner-take-all is a uniform top-k stand-in, not the real APL neuron. The circuit panel is schematic, not anatomical, and shows a 180-cell sample of 2,597.</p><p>Cherry / banana / citrus are fruit-inspired labels. Their recipes are illustrative fermentation and peel chemistry, not measured headspace of real fruit.</p></div>
+        <div><h3>Read the experiment</h3><p>The lines show the model's response to each isolated odor at a fixed dose, in arbitrary value units. They are not choice probabilities. Visit counters record actual contacts; the phases have unequal durations.</p><p>A changed value is learning inside this model, not a measurement of a real fly's feeding preference. “Simulation seconds” are uncalibrated.</p><p><a href="README.md">Implementation & verification notes ↗</a></p></div>
       </div>
     </details>
     <footer><span>A LITTLE WORLD FOR A LITTLE NOSE.</span><span>Local simulation · no tracking · reproducible seeds</span></footer>

@@ -1,4 +1,4 @@
-# Poop buffet / toy v0
+# Fruit buffet / toy v0
 
 ## Narrative
 
@@ -16,7 +16,7 @@ Save a short preview recording after validating the browser and model.
 
 ## Model scope
 
-This first version uses explicitly synthetic fecal-inspired recipes, receptor
+This first version uses explicitly synthetic fermenting-fruit-inspired recipes, receptor
 tuning, sparse Kenyon-cell connectivity, and a reward-plastic value readout.
 The architecture is inspired by fly olfaction; this version does not load the
 FlyWire graph or DoOR measurements. Keep these assumptions in one configuration
@@ -31,7 +31,7 @@ Station identity is used only for collision/contact rewards and reporting.
 Dark technical stage, a warm tan fly with red compound eyes and articulated legs,
 three shallow dishes, modest odor particles, and a separate schematic circuit.
 The fly and dishes are primary; grid and unactivated neurons are quiet context.
-Use amber, teal and lavender consistently for the three odor sources.
+Use wine-red, gold and citrus-orange consistently for the three odor sources.
 
 Sequence: FIRST IMPRESSIONS / MEALS & MEMORIES / ODOR-ONLY TEST.
 Show phase progress, simulation time, contact events, neural activity and

@@ -40,7 +40,7 @@ try {
   const downloadPromise = page.waitForEvent('download');
   await page.locator('#export').click();
   const download = await downloadPromise;
-  assert.match(download.suggestedFilename(), /^poop-buffet-seed-\d+\.json$/);
+  assert.match(download.suggestedFilename(), /^fruit-buffet-seed-\d+\.json$/);
   await page.evaluate(() => window.buffet.setOffline(false));
   await page.locator('#record').click();
   await page.waitForFunction(() => document.getElementById('record').classList.contains('recording'));
@@ -53,7 +53,7 @@ try {
   assert.ok((await stat(root + 'artifacts/recording-smoke-test.webm')).size > 2000);
   await page.evaluate(() => window.buffet.setOffline(true));
   await page.locator('summary').click();
-  assert.equal(await page.getByText('The assumptions in v0', { exact: true }).isVisible(), true);
+  assert.equal(await page.locator('.method-grid').isVisible(), true);
   await page.setViewportSize({ width: 390, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, 'no mobile horizontal overflow');
   await page.screenshot({ path: root + 'artifacts/mobile-preview.png', fullPage: true });

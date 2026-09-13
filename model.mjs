@@ -427,7 +427,7 @@ export class BuffetSimulation {
 
   export() {
     return {
-      schema: 'poop-buffet-toy/v1', seed: this.seed, connectivitySeed: MODEL.connectivitySeed,
+      schema: 'fruit-buffet-toy/v1', seed: this.seed, connectivitySeed: MODEL.connectivitySeed,
       assumptions: 'MEASURED: PN->KC wiring (FlyWire 783) and odorant->glomerulus responses (DoOR 2.0). SYNTHETIC: dish recipe proportions, innate valence gain, movement rules, and the top-k stand-in for APL.',
       model: MODEL, glomeruli: DOOR_RESPONSES.glomeruli,
       mbons: MB_OUTPUT.mbons, approachDrive: MB_OUTPUT.approachDrive,

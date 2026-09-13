@@ -17,7 +17,7 @@ try {
   await page.selectOption('#speed', '12');
   encoder = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps),
     '-i', 'pipe:0', '-c:v', 'libx264', '-preset', 'fast', '-crf', '20', '-pix_fmt', 'yuv420p',
-    '-movflags', '+faststart', root + 'artifacts/poop-buffet-preview.mp4'], { stdio: ['pipe', 'ignore', 'inherit'] });
+    '-movflags', '+faststart', root + 'artifacts/fruit-buffet-preview.mp4'], { stdio: ['pipe', 'ignore', 'inherit'] });
   const encoded = once(encoder, 'close');
   for (let frame = 0; frame < fps * seconds; frame++) {
     const png = await page.evaluate(({ advance }) => {
@@ -33,7 +33,7 @@ try {
   if (code !== 0) throw new Error(`ffmpeg exited ${code}`);
   const result = await page.evaluate(() => window.buffet.simulation.export());
   await writeFile(root + 'artifacts/preview-run.json', JSON.stringify(result, null, 2));
-  console.log('Saved artifacts/poop-buffet-preview.mp4 (28s, 1440×810, 30fps) and preview-run.json');
+  console.log('Saved artifacts/fruit-buffet-preview.mp4 (28s, 1440×810, 30fps) and preview-run.json');
 } finally {
   if (encoder && encoder.exitCode === null) encoder.kill();
   if (browser) await browser.close();

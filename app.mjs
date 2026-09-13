@@ -65,7 +65,7 @@ $('train-again').addEventListener('click', () => {
   $('run-status').textContent = `Training round ${sim.round}. Previous memories retained; test counts reset.`;
 });
 $('export').addEventListener('click', () => {
-  download(new Blob([JSON.stringify(sim.export(), null, 2)], { type: 'application/json' }), `poop-buffet-seed-${sim.seed}.json`);
+  download(new Blob([JSON.stringify(sim.export(), null, 2)], { type: 'application/json' }), `fruit-buffet-seed-${sim.seed}.json`);
 });
 
 function finishRecording() {
@@ -86,7 +86,7 @@ $('record').addEventListener('click', () => {
     recorder.onstop = () => {
       clearTimeout(recordingTimer);
       stream.getTracks().forEach(t => t.stop());
-      download(new Blob(chunks, { type: mimeType }), `poop-buffet-${seed}.${mimeType.startsWith('video/mp4') ? 'mp4' : 'webm'}`);
+      download(new Blob(chunks, { type: mimeType }), `fruit-buffet-${seed}.${mimeType.startsWith('video/mp4') ? 'mp4' : 'webm'}`);
       $('record').textContent = 'Record 20s'; $('record').classList.remove('recording');
       $('run-status').textContent = 'Clip saved. It includes the stage, live circuit, value trace and contact counts.';
       recorder = null;

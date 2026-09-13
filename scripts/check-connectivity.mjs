@@ -3,6 +3,7 @@
 import { OdorBrain, recipeVector } from '../model.mjs';
 import { DISHES, MODEL, ODORANTS } from '../config.mjs';
 const RECIPE = DISHES.map(d => recipeVector(d.recipe));
+const NAMES = DISHES.map(d => d.name);
 
 const cos = (a, b) => {
   let d = 0, na = 0, nb = 0;
@@ -21,8 +22,8 @@ for (const mode of ['flywire', 'rewired', 'random']) {
   console.log(`  ${brain.kenyonCells} KCs x ${brain.nInputs} inputs, top-k ${brain.activeKenyonCells}`);
   console.log(`  active cells: ${active.join(', ')}  (${sparsity.map(s => s.toFixed(1) + '%').join(', ')})`);
   console.log('  code overlap (cosine), lower = better separation:');
-  console.log(`    giraffe~zebra ${overlaps[0].toFixed(3)}   giraffe~lion ${overlaps[1].toFixed(3)}` +
-              `   zebra~lion ${overlaps[2].toFixed(3)}`);
+  console.log(`    ${NAMES[0]}~${NAMES[1]} ${overlaps[0].toFixed(3)}   ${NAMES[0]}~${NAMES[2]} ${overlaps[1].toFixed(3)}` +
+              `   ${NAMES[1]}~${NAMES[2]} ${overlaps[2].toFixed(3)}`);
   console.log(`    mean ${(overlaps.reduce((s, x) => s + x, 0) / 3).toFixed(3)}`);
 
   // Every active cell must be above the k+1-th, and no cell active with no odor.

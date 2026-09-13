@@ -22,4 +22,4 @@ http.createServer(async (req, res) => {
   } catch {
     res.writeHead(404); res.end('Not found');
   }
-}).listen(port, '127.0.0.1', () => console.log(`Poop buffet: http://127.0.0.1:${port}`));
+}).listen(port, '127.0.0.1', () => console.log(`Fruit buffet: http://127.0.0.1:${port}`));

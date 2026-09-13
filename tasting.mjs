@@ -10,21 +10,21 @@ import { glomerulusResponse, recipeVector } from './model.mjs';
 
 // House style for compounds a sommelier would never name aloud.
 const PROSE = {
-  'indole': 'indole',
-  '4-methylphenol': 'barnyard cresol',
-  '2-methylphenol': 'tar',
-  'butyric acid': 'cultured butter',
-  '2-butanone': 'solvent lift',
+  'ethyl acetate': 'nail-polish lift',
+  'isopentyl acetate': 'ripe banana',
+  'ethyl butyrate': 'pineapple ester',
+  'ethanol': 'boozy',
   'acetic acid': 'sharp vinegar',
-  'dimethyl sulfide': 'struck match',
-  'limonene': 'citrus peel',
-  'p-cymene': 'dried thyme',
-  '1-pentanol': 'green banana',
-  '2-heptanone': 'blue cheese',
+  '2,3-butanedione': 'buttered lees',
+  'hexyl acetate': 'green apple skin',
+  '1-hexanol': 'cut grass',
   'benzaldehyde': 'bitter almond',
+  'limonene': 'citrus peel',
+  'linalool': 'lavender rind',
+  'geraniol': 'rose geranium',
 };
 
-const APPELLATION = { giraffe: 'browse-fed', zebra: 'grass-fed', lion: 'meat-fed' };
+const APPELLATION = { banana: 'orchard-overripe', cherry: 'cask-fermented', citrus: 'grove-picked' };
 
 export function nose(dish, n = 3) {
   return Object.entries(dish.recipe)
