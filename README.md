@@ -73,6 +73,18 @@ attraction. Limonene, linalool and geraniol barely touch either one. The model
 was never told this circuit exists; it fell out of measured PN&rarr;KC wiring
 and measured receptor responses lining up with each other.
 
+**What that number does and does not predict.** Cherry vs. banana (+0.430 vs.
++0.437) is close enough that it is not safe to read as "she prefers banana."
+With every dish reward forced to zero across 40 seeds, banana still drew more
+visits than cherry (60 vs. 49) -- but swapping the two recipes across their
+dish *positions*, keeping chemistry fixed to a slot, showed the center dish
+wins visits (58-64) over either flank dish (49-50) **regardless of which
+recipe sits there**. The arena's geometry, not the odor, is driving most of
+that gap. The citrus gap (+0.146 vs. +0.43) is roughly 20x the position effect
+and survives every check above; the cherry/banana gap does not clear that bar.
+Read the connectome-derived number as a real, reproducible computation --
+not yet as a validated behavioral prediction at this margin.
+
 Learning still works, and can beat the innate order. `node
 scripts/does-she-learn.mjs` finds citrus is the least-preferred dish and rewards
 it -- the harder test, since citrus starts out roughly a third as appetitive as
